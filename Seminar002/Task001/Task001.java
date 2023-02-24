@@ -1,4 +1,4 @@
-package Seminar002;
+package Seminar002.Task001;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -42,7 +42,7 @@ public class Task001 {
 
     public static void logger(String info) {
         Date date = new Date();
-        try (FileWriter fw = new FileWriter("Seminar002/log.txt", true)) {
+        try (FileWriter fw = new FileWriter("Seminar002/Task001/log.txt", true)) {
             StringBuilder str = new StringBuilder(date.toString());
             str.append(":\n");
             str.append(info);
