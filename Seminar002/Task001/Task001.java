@@ -47,8 +47,7 @@ public class Task001 {
                 }
             }
             count++;
-            str.append("Итерация ").append(Integer.toString(count)).append(": ");
-            str.append(Arrays.toString(array)).append("\n");
+            str.append("Итерация ").append(count).append(": ").append(Arrays.toString(array)).append("\n");
         }
         logger(str.toString());
         return array;
