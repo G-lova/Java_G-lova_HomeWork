@@ -4,6 +4,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.Random;
+import java.util.Scanner;
 
 /**
  * Task001
@@ -13,11 +15,26 @@ import java.util.Date;
 
 public class Task001 {
     public static void main(String[] args) throws IOException {
-        int[] array = new int[] { 6, 5, 4, 9, 1, 3 };
+        // int[] array = new int[] { 6, 5, 4, 9, 1, 3 };
+        Scanner sc = new Scanner(System.in);
+        System.out.printf("Введите размер массива: ");
+        int n = sc.nextInt();
+        sc.close();
+        int[] array = getArray(n, 10);
+        System.out.println(Arrays.toString(array));
         int[] arraySorted = sorting(array);
         System.out.println(Arrays.toString(arraySorted));
     }
     
+    public static int[] getArray(int size, int max) {
+        int[] array = new int[size];
+        Random random = new Random();
+        for (int i = 0; i < size; i++) {
+            array[i] = random.nextInt(max);
+        }
+        return array;
+    }
+
     private static int[] sorting(int[] array) {
         int count = 0;
         StringBuilder str = new StringBuilder("");
@@ -30,11 +47,8 @@ public class Task001 {
                 }
             }
             count++;
-            str.append("Итерация ");
-            str.append(Integer.toString(count));
-            str.append(": ");
-            str.append(Arrays.toString(array));
-            str.append("\n");
+            str.append("Итерация ").append(Integer.toString(count)).append(": ");
+            str.append(Arrays.toString(array)).append("\n");
         }
         logger(str.toString());
         return array;
@@ -44,8 +58,7 @@ public class Task001 {
         Date date = new Date();
         try (FileWriter fw = new FileWriter("Seminar002/Task001/log.txt", true)) {
             StringBuilder str = new StringBuilder(date.toString());
-            str.append(":\n");
-            str.append(info);
+            str.append(":\n").append(info);
             fw.write(str.toString());
             fw.write('\n');
             fw.flush();
