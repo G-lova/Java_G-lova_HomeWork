@@ -95,10 +95,10 @@ public class Task003 {
         BufferedReader br = new BufferedReader(new FileReader("Seminar005/Task003/Mat.txt"));
         String str;
         StringBuilder mat = new StringBuilder();
-        int i = 0;
+        int i = 1;
         int j = 0;
         while ((str = br.readLine()) != null) {
-            if ((i + 1) % 9 == 0) {
+            if (i % 9 == 0) {
                 map.put(j, mat.toString());
                 mat.delete(0, mat.length());
                 i++;
